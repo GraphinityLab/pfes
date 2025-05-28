@@ -9,6 +9,7 @@ import Navbar from './components/Navbar';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Home from './pages/Home';
+import Services from './pages/Services';
 
 function App() {
   return (
@@ -40,6 +41,16 @@ function App() {
             <>
               <Navbar />
               <Contact />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/electrical-services"
+          element={
+            <>
+              <Navbar />
+              <Services />
               <Footer />
             </>
           }
