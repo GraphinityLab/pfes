@@ -26,7 +26,7 @@ function App() {
           }
         />
         <Route
-          path="/about-us"
+          path="/about"
           element={
             <>
               <Navbar />
@@ -36,7 +36,7 @@ function App() {
           }
         />
         <Route
-          path="/contact-us"
+          path="/contact"
           element={
             <>
               <Navbar />
@@ -46,7 +46,7 @@ function App() {
           }
         />
         <Route
-          path="/electrical-services"
+          path="/services"
           element={
             <>
               <Navbar />
