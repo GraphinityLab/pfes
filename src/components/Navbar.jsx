@@ -7,11 +7,15 @@ const navItems = ["Home", "About", "Services", "Contact"];
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const currentPath = location.pathname === "/" ? "" : location.pathname.replace("/", "");
+  const currentPath =
+    location.pathname === "/" ? "" : location.pathname.replace("/", "");
 
   return (
-    <header className="fixed top-0 w-full z-50 backdrop-blur-sm bg-[#0F151B]/80 border-b border-white/10 shadow-lg transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center text-white">
+    <header className="fixed top-0 w-full z-50 bg-gradient-to-r from-[#0F151B]/45 to-[#0F151B]/80 backdrop-blur-sm shadow-lg overflow-hidden">
+      {/* Gradient Border */}
+      <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#B3001E]/100 to-transparent pointer-events-none z-20" />
+
+      <div className="relative max-w-7xl mx-auto px-6 py-4 flex justify-between items-center text-white z-30">
         {/* Logo */}
         <a href="/" className="flex items-center space-x-3">
           <img
@@ -32,19 +36,22 @@ const Navbar = () => {
                 key={item}
                 href={`/${path}`}
                 className={`group relative pb-1 transition-colors duration-200 ${
-                  isActive ? "text-[#B3001E]" : "text-white hover:text-[#B3001E]"
+                  isActive
+                    ? "text-[#B3001E]"
+                    : "text-white hover:text-[#B3001E]"
                 }`}
               >
                 {item}
                 <span
                   className={`absolute left-0 bottom-0 h-[2px] w-full bg-[#B3001E] transition-transform duration-300 origin-left ${
-                    isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                    isActive
+                      ? "scale-x-100"
+                      : "scale-x-0 group-hover:scale-x-100"
                   }`}
                 />
               </a>
             );
           })}
-
           <a
             href="/contact"
             className="ml-8 px-5 py-2 rounded-full bg-[#B3001E] text-white font-bold text-sm shadow-md hover:shadow-lg hover:text-[#B3001E] hover:bg-white transition"
@@ -53,21 +60,19 @@ const Navbar = () => {
           </a>
         </nav>
 
-        {/* Mobile Menu Icon */}
-        <div className="md:hidden">
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-            className="text-white hover:text-[#B3001E] transition"
-          >
-            {isOpen ? <HiX size={28} /> : <HiMenu size={28} />}
-          </button>
-        </div>
+        {/* Mobile Icon */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
+          className="md:hidden text-white hover:text-[#B3001E] transition"
+        >
+          {isOpen ? <HiX size={28} /> : <HiMenu size={28} />}
+        </button>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden backdrop-blur-md bg-[#0F151B]/80 px-6 pb-4 pt-2 border-t border-white/10">
+        <div className="md:hidden backdrop-blur-md bg-[#0F151B]/80 px-6 pb-4 pt-2 border-t border-white/10 z-20">
           <nav className="flex flex-col space-y-5 text-base font-semibold uppercase text-white">
             {navItems.map((item) => {
               const path = item === "Home" ? "" : item.toLowerCase();

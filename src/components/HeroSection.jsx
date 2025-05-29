@@ -10,15 +10,16 @@ const config = {
   ],
   headline: "Licensed Electrical Contractor You Can Trust",
   subtexts: [
-    "We specialize in electrical services for homes, businesses, and facilities — safely and professionally.",
-    "From panel upgrades to lighting solutions — our team delivers code-compliant results.",
-    "Trust our certified experts for industrial power, automation, and maintenance.",
-    "Bringing clean energy and smart tech to your space with precision and care.",
+    "We provide expert electrical services for homes, businesses, and large facilities with safety and precision.",
+    "From panel upgrades to advanced lighting, our team ensures fully compliant, high-quality installations.",
+    "Rely on our certified professionals for industrial power systems, automation, and ongoing maintenance.",
+    "We bring clean energy and smart technology to your property with unmatched attention to detail.",
   ],
+
   imageChangeInterval: 10000,
   textChangeInterval: 8000,
   headingColor: "#B3001E",
-  overlayGradient: "from-black/80 via-black/60 to-transparent",
+  overlayGradient: "from-black/90 via-black/70 to-black/50",
 };
 
 const HeroSection = () => {
@@ -65,7 +66,7 @@ const HeroSection = () => {
       </div>
 
       {/* Foreground Content */}
-      <div className="relative z-40 h-full flex items-center px-8 md:px-16">
+      <div className="relative z-40 h-full flex items-center px-8 md:px-36">
         <div className="text-left max-w-4xl space-y-6">
           <h1
             className="text-2xl md:text-5xl font-bold drop-shadow-lg tracking-wide uppercase"
