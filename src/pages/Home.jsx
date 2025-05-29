@@ -1,8 +1,8 @@
-import HeroSection from "../components/HeroSection";
-import ServicePreviewCards from "../components/ServicePreviewCards";
-import AboutPreview from "../components/AboutPreview";
-import Testimonials from "../components/Testimonials";
-import LineBreaker from "../components/LineBreaker";
+import AboutPreview from '../components/AboutPreview';
+import HeroSection from '../components/HeroSection';
+import LineBreaker from '../components/LineBreaker';
+import ServicePreviewCards from '../components/ServicePreviewCards';
+import Testimonials from '../components/Testimonials';
 
 const Home = () => {
   return (
