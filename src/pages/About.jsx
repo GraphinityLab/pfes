@@ -101,7 +101,7 @@ const About = () => {
 
               {/* Gear Image */}
               <img
-                src="/gear.png"
+                src="/about/gear.png"
                 alt="Gear"
                 className="gear-spin w-44 md:w-60 opacity-5 mt-6 ml-2 select-none pointer-events-none"
               />
