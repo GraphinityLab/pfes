@@ -56,10 +56,10 @@ const services = [
 
 const OurServices = () => {
   return (
-    <section className="bg-[#0F151B] text-white py-20 px-6">
+    <section className="bg-[#0F151B]/100 text-white py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#B3001E] tracking-tight mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#B3001E] tracking-tight py-10 mb-4">
             Electrical Services
           </h2>
           <p className="text-xl md:text-2xl text-white/80">

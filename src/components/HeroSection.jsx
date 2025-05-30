@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 // Configurable constants
 const config = {
   images: [
-    "/gallery/img1.png",
-    "/gallery/img2.png",
-    "/gallery/img3.png",
-    "/gallery/img4.png",
+    "/gallery/img1.webp",
+    "/gallery/img2.webp",
+    "/gallery/img3.webp",
+    "/gallery/img4.webp",
   ],
   headline: "Licensed Electrical Contractor You Can Trust",
   subtexts: [
@@ -16,7 +16,7 @@ const config = {
     "We bring clean energy and smart technology to your property with unmatched attention to detail.",
   ],
 
-  imageChangeInterval: 10000,
+  imageChangeInterval: 5000,
   textChangeInterval: 8000,
   headingColor: "#B3001E",
   overlayGradient: "from-black/90 via-black/70 to-black/50",

@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 
+
 const AboutPreview = () => {
   return (
-    <section className="bg-[#0F151B] text-white py-28 px-6">
+    <section className="bg-black text-white py-28 px-6 border-t border-b border-[#B3001E]">
       <div className="max-w-[1400px] mx-auto grid md:grid-cols-2 gap-12 items-center">
         {/* Left Content */}
         <motion.div
@@ -38,16 +39,19 @@ const AboutPreview = () => {
           </div>
         </motion.div>
 
-        {/* Right Visual or Placeholder (Optional) */}
+        {/* Right Image */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="w-full h-80 bg-[#1C2128] rounded-xl border border-[#B3001E]/20 flex items-center justify-center"
+          className="w-full h-80 md:h-full rounded-xl overflow-hidden border border-[#B3001E]/20"
         >
-          {/* Replace with image or graphic */}
-          <span className="text-white/50 italic">Company visual or photo goes here</span>
+          <img
+            src="/about-preview.webp"
+            alt="Our team at work"
+            className="w-full h-full object-cover"
+          />
         </motion.div>
       </div>
     </section>

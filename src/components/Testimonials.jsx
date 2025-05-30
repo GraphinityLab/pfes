@@ -34,7 +34,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="relative bg-gradient-to-b from-[#0F151B]/100 to-[#060B0E]/100 text-white py-24 px-6 overflow-hidden">
+    <section className="relative bg-gradient-to-t from-[#0F151B]/100 to-[#080A0E]/100 text-white py-24 px-6 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#B3001E]/5 via-transparent to-transparent pointer-events-none" />
 
       <div className="relative z-10 max-w-6xl mx-auto text-right mb-20 px-4">

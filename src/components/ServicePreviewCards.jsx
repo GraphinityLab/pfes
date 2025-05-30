@@ -106,8 +106,7 @@ const services = [
 
 const ServicesGrid = () => {
   return (
-    <section className="bg-[#0F151B] text-white py-32 px-6 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-b from-[#B3001E]/10 via-transparent to-[#0F151B] opacity-20 pointer-events-none" />
+    <section className="relative bg-gradient-to-b from-[#0F151B]/100 to-[#080A0E]/100 text-white py-24 px-6 overflow-hidden">
       <div className="max-w-[1920px] mx-auto flex flex-col items-center gap-20 relative z-10">
         {/* Description */}
         <motion.div

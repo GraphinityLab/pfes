@@ -15,18 +15,13 @@ const Home = () => {
         <ServicePreviewCards />
       </section>
 
-      <section className="w-full  bg-[#0F151B]">
-        <LineBreaker />
-      </section>
+
 
       {/* About section */}
       <section id="about" className="w-full ">
         <AboutPreview />
       </section>
 
-      <section className="w-full  bg-[#0F151B]">
-        <LineBreaker />
-      </section>
 
       {/* About section */}
       <section id="about" className="w-full ">
