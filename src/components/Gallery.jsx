@@ -67,8 +67,8 @@ const Gallery = () => {
   return (
     <section className="bg-[#0F151B] text-white py-20 px-6">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-center text-[#B3001E] mb-12">
-          Adaptive Masonry Gallery
+        <h2 className="text-5xl  font-bold text-center text-[#B3001E] mb-12">
+          Work Portfolio Gallery
         </h2>
 
         {/* Filter Buttons */}

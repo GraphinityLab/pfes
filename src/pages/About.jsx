@@ -81,10 +81,10 @@ const About = () => {
           <div className="divide-y divide-[#B3001E]/75 overflow-hidden">
             {reasons.map((item, idx) => (
               <div key={idx} className="p-6  transition">
-                <h3 className="text-lg font-semibold text-[#B3001E] uppercase tracking-wide mb-2">
+                <h3 className="text-xl font-semibold text-[#B3001E] uppercase tracking-wide mb-2">
                   {item.title}
                 </h3>
-                <p className="text-white/80 text-md leading-relaxed">
+                <p className="text-white/80 text-lg leading-relaxed">
                   {item.desc}
                 </p>
               </div>

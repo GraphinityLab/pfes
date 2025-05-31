@@ -19,7 +19,7 @@ const config = {
   imageChangeInterval: 5000,
   textChangeInterval: 8000,
   headingColor: "#B3001E",
-  overlayGradient: "from-black/90 via-black/70 to-black/50",
+  overlayGradient: "from-black/80 via-black/45 to-black/0",
 };
 
 const HeroSection = () => {
