@@ -13,12 +13,12 @@ const galleryItems = [
   { title: "Custom LED Cross Feature, Accent Wiring", img: "/gallery/residential/res6.webp", category: "Residential", layout: "ver" },
   { title: "Exterior Service Conduit & Gas Meter Clearance", img: "/gallery/residential/res7.webp", category: "Residential", layout: "ver" },
   { title: "Structured Wiring Panel with Network Termination", img: "/gallery/residential/res8.webp", category: "Residential", layout: "hor" },
-  { title: "Industrial LED Bay Lights in Warehouse", img: "/gallery/commercial/com1.webp", category: "Commercial", layout: "ver" },
-  { title: "Office Ceiling Light Grid and Ductwork Rough In", img: "/gallery/commercial/com2.webp", category: "Commercial", layout: "hor" },
-  { title: "Multi Panel Disconnect and Switchgear Wall", img: "/gallery/commercial/com3.webp", category: "Commercial", layout: "hor" },
-  { title: "Dedicated Griddle Circuit and Commercial Hookup", img: "/gallery/commercial/com4.webp", category: "Commercial", layout: "ver" },
-  { title: "Dual Fryer Installation with Power Routing", img: "/gallery/commercial/com5.webp", category: "Commercial", layout: "square" },
-  { title: "LED Grid Lighting Across Ceiling Layout", img: "/gallery/commercial/com6.webp", category: "Commercial", layout: "square" },
+  { title: "Industrial LED Bay Lights in Warehouse", img: "/gallery/commercial/_com1.webp", category: "Commercial", layout: "ver" },
+  { title: "Office Ceiling Light Grid and Ductwork Rough In", img: "/gallery/commercial/_com2.webp", category: "Commercial", layout: "hor" },
+  { title: "Multi Panel Disconnect and Switchgear Wall", img: "/gallery/commercial/_com3.webp", category: "Commercial", layout: "hor" },
+  { title: "Dedicated Griddle Circuit and Commercial Hookup", img: "/gallery/commercial/_com4.webp", category: "Commercial", layout: "ver" },
+  { title: "Dual Fryer Installation with Power Routing", img: "/gallery/commercial/_com5.webp", category: "Commercial", layout: "square" },
+  { title: "LED Grid Lighting Across Ceiling Layout", img: "/gallery/commercial/_com6.webp", category: "Commercial", layout: "square" },
 ];
 
 const ImageCard = ({ item }) => {

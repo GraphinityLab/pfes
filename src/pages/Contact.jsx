@@ -1,7 +1,14 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaInstagram, FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
+import {
+  FaPhone,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaInstagram,
+  FaFacebookF,
+  FaLinkedinIn,
+} from 'react-icons/fa';
 
 const Contact = () => {
   const [searchParams] = useSearchParams();
@@ -49,13 +56,12 @@ const Contact = () => {
         </p>
 
         <div className="grid lg:grid-cols-3 gap-10 items-start">
-          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="col-span-1 bg-gradient-to-b from-[#0F151B] to-[#06090B]  p-6 rounded-xl shadow-lg border border-[#2c394a] space-y-8"
+            className="col-span-1 bg-gradient-to-b from-[#0F151B] to-[#06090B] p-6 rounded-xl shadow-lg border border-[#2c394a] space-y-8"
           >
             <div className="space-y-4">
               <div className="flex items-center gap-3">
@@ -89,7 +95,6 @@ const Contact = () => {
             <img src="/contact-preview.webp" alt="Powerflow team" className="rounded-lg shadow-md border border-white/10" />
           </motion.div>
 
-          {/* Contact Form */}
           <motion.form
             onSubmit={handleSubmit}
             initial={{ opacity: 0, x: 40 }}
@@ -103,7 +108,6 @@ const Contact = () => {
               { name: "email", label: "Email", type: "email" },
               { name: "phone", label: "Phone Number", type: "text" },
               { name: "company", label: "Company Name (optional)", type: "text" },
-              { name: "service", label: "Service Type", type: "text", placeholder: "Residential, Commercial, etc." },
               { name: "budget", label: "Estimated Budget", type: "text" },
               { name: "timeline", label: "Preferred Timeline", type: "text", placeholder: "e.g., 2 weeks, ASAP" },
               { name: "contactMethod", label: "Preferred Contact Method", type: "text", placeholder: "Phone, Email, Text" },
@@ -121,6 +125,23 @@ const Contact = () => {
                 />
               </div>
             ))}
+
+            <div>
+              <label className="block mb-1 font-medium text-sm text-[#d0d0d0]">Service Type</label>
+              <select
+                name="service"
+                value={form.service}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-2 rounded-md bg-[#0F151B] border border-[#2c394a] text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#B3001E]"
+              >
+                <option value="">Select a service</option>
+                <option value="residential">Residential Electrical Services</option>
+                <option value="commercial">Commercial Electrical Services</option>
+                <option value="industrial">Industrial Electrical Services</option>
+                <option value="specialty">Specialty Services</option>
+              </select>
+            </div>
 
             <div>
               <label className="block mb-1 font-medium text-sm text-[#d0d0d0]">Project Description / Message</label>

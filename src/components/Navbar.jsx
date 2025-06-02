@@ -15,7 +15,7 @@ const Navbar = () => {
       {/* Gradient Border */}
       <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#B3001E]/100 to-transparent pointer-events-none z-20" />
 
-      <div className="relative max-w-7xl mx-auto px-6 py-4 flex justify-between items-center text-white z-30">
+      <div className="relative max-w-full mx-auto px-6 py-4 flex justify-between items-center text-white z-30">
         {/* Logo */}
         <a href="/" className="flex items-center space-x-3">
           <img
