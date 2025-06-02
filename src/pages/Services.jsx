@@ -16,7 +16,7 @@ const service = [
     ],
     link: "/contact?service=residential",
     icon: <FaHome className="text-2xl text-[#B3001E]" />,
-    image: "/services/res.webp",
+    image: "/serv/res.webp",
   },
   {
     title: "Industrial Electrical Services",
@@ -31,7 +31,7 @@ const service = [
     ],
     link: "/contact?service=industrial",
     icon: <FaIndustry className="text-2xl text-[#B3001E]" />,
-    image: "/services/indus.webp",
+    image: "/serv/indus.webp",
   },
   {
     title: "Commercial Electrical Services",
@@ -46,7 +46,7 @@ const service = [
     ],
     link: "/contact?service=commercial",
     icon: <FaBuilding className="text-2xl text-[#B3001E]" />,
-    image: "/services/com.webp",
+    image: "/serv/com.webp",
   },
   {
     title: "Specialty Services",
@@ -60,7 +60,7 @@ const service = [
     ],
     link: "/contact?service=specialty",
     icon: <FaSolarPanel className="text-2xl text-[#B3001E]" />,
-    image: "/services/special.webp",
+    image: "/serv/special.webp",
   },
 ];
 
