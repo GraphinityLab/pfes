@@ -83,7 +83,7 @@ const HeroSection = () => {
           </p>
           <a
             href="/contact"
-            className="inline-block mt-4 px-6 py-3 rounded-full bg-[#B3001E] text-white font-semibold shadow-md hover:scale-105 transition"
+            className="inline-flex items-center gap-3 bg-[#B3001E] text-white px-8 py-3 rounded-full font-semibold shadow-xl hover:bg-white hover:text-[#B3001E] transition-all duration-300 group"
           >
             Request a Quote
           </a>

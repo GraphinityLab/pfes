@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { FaArrowRight, FaHome, FaIndustry, FaBuilding, FaSolarPanel } from "react-icons/fa";
 
 const services = [
   {
@@ -13,6 +15,8 @@ const services = [
       "Troubleshooting & Repairs: Fast diagnosis and repair of electrical issues to keep your home safe.",
     ],
     link: "/contact?service=residential",
+    icon: <FaHome className="text-2xl text-[#B3001E]" />,
+    image: "/services/res.webp",
   },
   {
     title: "Industrial Electrical Services",
@@ -26,6 +30,8 @@ const services = [
       "Automation & Control Systems: Advanced control systems for efficient facility management.",
     ],
     link: "/contact?service=industrial",
+    icon: <FaIndustry className="text-2xl text-[#B3001E]" />,
+    image: "/services/indus.webp",
   },
   {
     title: "Commercial Electrical Services",
@@ -39,6 +45,8 @@ const services = [
       "Emergency Services: Rapid response for unexpected electrical issues affecting your operations.",
     ],
     link: "/contact?service=commercial",
+    icon: <FaBuilding className="text-2xl text-[#B3001E]" />,
+    image: "/services/com.webp",
   },
   {
     title: "Specialty Services",
@@ -51,16 +59,24 @@ const services = [
       "EV Charging Stations: Convenient electric vehicle charging solutions for homes and businesses.",
     ],
     link: "/contact?service=specialty",
+    icon: <FaSolarPanel className="text-2xl text-[#B3001E]" />,
+    image: "/services/special.webp",
   },
 ];
 
 const OurServices = () => {
   return (
-    <section className="bg-[#0F151B]/100 text-white py-20 px-6">
+    <section className="bg-gradient-to-b from-[#06090B] to-[#0F151B] text-white py-20 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#B3001E] tracking-tight py-10 mb-4">
-            Electrical Services
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-6xl font-bold text-[#B3001E] tracking-tight py-10 mb-4">
+            Our Services
           </h2>
           <p className="text-xl md:text-2xl text-white/80">
             Expert Solutions for Residential, Commercial & Industrial Needs
@@ -69,34 +85,52 @@ const OurServices = () => {
             At Powerflow, we provide a complete range of electrical services
             designed to deliver safety, innovation, and energy efficiency.
             Whether you're upgrading your home, expanding your business, or
-            managing a facility, our experienced team delivers dependable results at every level.
+            managing a facility, our experienced team delivers dependable
+            results at every level.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12">
           {services.map((section, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-white/5 rounded-xl p-6 shadow-lg border border-white/10 hover:border-[#B3001E] transition group"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+              viewport={{ once: true }}
+              className="bg-white/5 rounded-xl p-6 shadow-lg border border-white/10 hover:border-[#B3001E] transition group flex flex-col justify-between h-full"
             >
-              <h3 className="text-xl font-bold text-[#B3001E] mb-2">
-                {section.title}
-              </h3>
-              <p className="text-white/80 mb-4">{section.description}</p>
-              <ul className="space-y-3 text-white/90 list-disc list-inside mb-6">
-                {section.points.map((point, idx) => (
-                  <li key={idx} className="leading-relaxed">
-                    {point}
-                  </li>
-                ))}
-              </ul>
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  {section.icon}
+                  <h3 className="text-xl font-bold text-[#B3001E]">{section.title}</h3>
+                </div>
+
+                <img
+                  src={section.image}
+                  alt={section.title}
+                  className="w-full h-48 object-cover rounded-lg mb-4 border border-white/10"
+                />
+
+                <p className="text-white/80 mb-4">{section.description}</p>
+
+                <ul className="space-y-3 text-white/90 list-disc list-inside">
+                  {section.points.map((point, idx) => (
+                    <li key={idx} className="leading-relaxed">
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
               <Link
                 to={section.link}
-                className="inline-block mt-auto px-4 py-2 rounded-full bg-[#B3001E] text-white font-semibold text-sm shadow-md hover:shadow-red-500/40 hover:scale-105 transition"
+                className="mt-8 inline-flex items-center gap-2 self-start text-sm bg-[#B3001E] text-white px-6 py-2.5 rounded-full font-medium shadow hover:bg-white hover:text-[#B3001E] transition-all duration-300 group"
               >
                 Learn More
+                <FaArrowRight className="transform group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
