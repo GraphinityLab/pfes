@@ -1,12 +1,19 @@
-import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { HiMenu, HiX } from "react-icons/hi";
 import {
-  FaMapMarkerAlt,
-  FaPhoneAlt,
+  useEffect,
+  useState,
+} from 'react';
+
+import {
   FaEnvelope,
   FaIdCard,
-} from "react-icons/fa";
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+} from 'react-icons/fa';
+import {
+  HiMenu,
+  HiX,
+} from 'react-icons/hi';
+import { useLocation } from 'react-router-dom';
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -18,7 +25,6 @@ const navItems = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const location = useLocation();
 
   const currentPath =
@@ -26,27 +32,30 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const scrollingUp = currentScrollY < lastScrollY;
+      const isMobile = window.innerWidth < 768;
+      const isAtTop = window.scrollY === 0;
 
-      setShowHeader(scrollingUp || currentScrollY < 20);
-      setLastScrollY(currentScrollY);
+      if (isMobile) {
+        setShowHeader(isAtTop);
+      } else {
+        setShowHeader(true);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   return (
     <header className="fixed top-0 w-full z-50 leading-none">
       <div className="w-full bg-[#01060A] shadow-lg">
         {/* Top Contact Bar */}
         <div
-          className={`overflow-hidden transition-all duration-300 ease-in-out ${
+          className={`transition-all duration-300 ease-in-out overflow-hidden ${
             showHeader ? "max-h-[200px] opacity-100" : "max-h-0 opacity-0"
-          } bg-[#01060A] border-b border-white/10`}
+          } bg-[#01060A] border-b border-white/10 md:max-h-[200px] md:opacity-100`}
         >
-          <div className="px-6 py-2 text-white text-sm tracking-wide space-y-2 lg:space-y-0 flex flex-col lg:flex-row justify-between items-start lg:items-center transition-opacity duration-300">
+          <div className="px-6 py-2 text-white text-sm tracking-wide space-y-2 lg:space-y-0 flex flex-col lg:flex-row justify-between items-start lg:items-center">
             <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center sm:space-x-6 space-y-2 sm:space-y-0">
               <div className="flex items-center space-x-2">
                 <FaMapMarkerAlt className="text-[#B3001E] w-4 h-4" />
@@ -79,11 +88,7 @@ const Navbar = () => {
         </div>
 
         {/* Main Navbar */}
-        <div
-          className={`relative w-full px-6 py-1.5 flex justify-between items-center text-white bg-gradient-to-r from-[#0F151B]/45 to-[#0F151B]/80 backdrop-blur-sm transition-transform duration-300 ease-in-out ${
-            showHeader ? "translate-y-0" : "-translate-y-10"
-          }`}
-        >
+        <div className="relative w-full px-6 py-1.5 flex justify-between items-center text-white bg-gradient-to-r from-[#0F151B]/45 to-[#0F151B]/80 backdrop-blur-sm transition-transform duration-300 ease-in-out">
           {/* Logo */}
           <a href="/" className="flex items-center space-x-3">
             <img
