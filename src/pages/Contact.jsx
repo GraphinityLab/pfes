@@ -1,15 +1,16 @@
-import { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
-import { motion } from "framer-motion";
 import {
-  FaPhone,
+  useEffect,
+  useState,
+} from 'react';
+
+import { motion } from 'framer-motion';
+import {
   FaEnvelope,
-  FaMapMarkerAlt,
-  FaInstagram,
-  FaFacebookF,
-  FaLinkedinIn,
   FaIdCardAlt,
-} from "react-icons/fa";
+  FaMapMarkerAlt,
+  FaPhone,
+} from 'react-icons/fa';
+import { useSearchParams } from 'react-router-dom';
 
 const Contact = () => {
   const [searchParams] = useSearchParams();
@@ -28,15 +29,21 @@ const Contact = () => {
   });
 
   useEffect(() => {
-    const section = document.getElementById("contact-form");
-    if (section) section.scrollIntoView({ behavior: "smooth" });
-  }, []);
+    const scrollToForm = () => {
+      const section = document.getElementById("contact-form");
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    };
+
+    if (serviceFromURL) {
+      setTimeout(scrollToForm, 400);
+    }
+  }, [serviceFromURL]);
 
   const handleChange = (e) => {
-    setForm((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e) => {
@@ -49,9 +56,8 @@ const Contact = () => {
       <main className="flex-grow px-5 py-16 max-w-[85rem] mx-auto w-full">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
           className="text-4xl md:text-6xl font-bold text-[#B3001E] mb-6 text-center"
         >
           Contact Us
@@ -63,12 +69,12 @@ const Contact = () => {
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-stretch">
+          {/* Left: Contact Info */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="col-span-1 w-full h-full flex flex-col bg-gradient-to-b from-[#0F151B] to-[#06090B] p-6 sm:p-8 rounded-xl shadow-lg border border-[#2c394a] space-y-6"
+            className="col-span-1 flex flex-col bg-gradient-to-b from-[#0F151B] to-[#06090B] p-6 sm:p-8 rounded-xl shadow-lg border border-[#2c394a] space-y-6"
           >
             <div className="space-y-4">
               <li className="flex items-start gap-x-2 flex-wrap">
@@ -103,96 +109,94 @@ const Contact = () => {
             />
           </motion.div>
 
-          <div className="col-span-2 flex justify-center">
-            <motion.form
-              id="contact-form"
-              onSubmit={handleSubmit}
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="w-full max-w-2xl h-full flex flex-col justify-between space-y-4 bg-gradient-to-b from-[#0F151B] to-[#06090B] p-6 sm:p-8 rounded-xl shadow-lg border border-[#2c394a]"
-            >
-              {[
-                { name: "name", label: "Full Name", type: "text" },
-                { name: "email", label: "Email", type: "email" },
-                { name: "phone", label: "Phone Number", type: "text" },
-                {
-                  name: "company",
-                  label: "Company Name (optional)",
-                  type: "text",
-                },
-                { name: "budget", label: "Estimated Budget", type: "text" },
-                {
-                  name: "timeline",
-                  label: "Preferred Timeline",
-                  type: "text",
-                  placeholder: "e.g., 2 weeks, ASAP",
-                },
-                {
-                  name: "contactMethod",
-                  label: "Preferred Contact Method",
-                  type: "text",
-                  placeholder: "Phone, Email, Text",
-                },
-              ].map(({ name, label, type, placeholder }) => (
-                <div key={name}>
-                  <label className="block mb-1 font-medium text-sm text-[#d0d0d0]">
-                    {label}
-                  </label>
-                  <input
-                    type={type}
-                    name={name}
-                    value={form[name]}
-                    onChange={handleChange}
-                    placeholder={placeholder || ""}
-                    required={name !== "company"}
-                    className="w-full px-4 py-2 rounded-md bg-[#0F151B] border border-[#2c394a] text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#B3001E]"
-                  />
-                </div>
-              ))}
-
-              <div>
+          {/* Right: Contact Form */}
+          <motion.form
+            id="contact-form"
+            onSubmit={handleSubmit}
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="col-span-2 w-full max-w-2xl flex flex-col space-y-4 bg-gradient-to-b from-[#0F151B] to-[#06090B] p-6 sm:p-8 rounded-xl shadow-lg border border-[#2c394a]"
+          >
+            {[
+              { name: "name", label: "Full Name", type: "text" },
+              { name: "email", label: "Email", type: "email" },
+              { name: "phone", label: "Phone Number", type: "text" },
+              {
+                name: "company",
+                label: "Company Name (optional)",
+                type: "text",
+              },
+              { name: "budget", label: "Estimated Budget", type: "text" },
+              {
+                name: "timeline",
+                label: "Preferred Timeline",
+                type: "text",
+                placeholder: "e.g., 2 weeks, ASAP",
+              },
+              {
+                name: "contactMethod",
+                label: "Preferred Contact Method",
+                type: "text",
+                placeholder: "Phone, Email, Text",
+              },
+            ].map(({ name, label, type, placeholder }) => (
+              <div key={name}>
                 <label className="block mb-1 font-medium text-sm text-[#d0d0d0]">
-                  Service Type
+                  {label}
                 </label>
-                <select
-                  name="service"
-                  value={form.service}
+                <input
+                  type={type}
+                  name={name}
+                  value={form[name]}
                   onChange={handleChange}
-                  required
+                  placeholder={placeholder || ""}
+                  required={name !== "company"}
                   className="w-full px-4 py-2 rounded-md bg-[#0F151B] border border-[#2c394a] text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#B3001E]"
-                >
-                  <option value="">Select a service</option>
-                  <option value="residential">Residential Electrical Services</option>
-                  <option value="commercial">Commercial Electrical Services</option>
-                  <option value="industrial">Industrial Electrical Services</option>
-                  <option value="specialty">Specialty Services</option>
-                </select>
+                />
               </div>
+            ))}
 
-              <div>
-                <label className="block mb-1 font-medium text-sm text-[#d0d0d0]">
-                  Project Description / Message
-                </label>
-                <textarea
-                  name="message"
-                  value={form.message}
-                  onChange={handleChange}
-                  rows="4"
-                  required
-                  className="w-full px-4 py-2 rounded-md bg-[#0F151B] border border-[#2c394a] text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#017ea4]"
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-[#B3001E] hover:bg-white text-white font-semibold px-6 py-2 rounded-md text-sm hover:text-[#B3001E] transition"
+            <div>
+              <label className="block mb-1 font-medium text-sm text-[#d0d0d0]">
+                Service Type
+              </label>
+              <select
+                name="service"
+                value={form.service}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-2 rounded-md bg-[#0F151B] border border-[#2c394a] text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#B3001E]"
               >
-                Submit
-              </button>
-            </motion.form>
-          </div>
+                <option value="">Select a service</option>
+                <option value="residential">Residential Electrical Services</option>
+                <option value="commercial">Commercial Electrical Services</option>
+                <option value="industrial">Industrial Electrical Services</option>
+                <option value="specialty">Specialty Services</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block mb-1 font-medium text-sm text-[#d0d0d0]">
+                Project Description / Message
+              </label>
+              <textarea
+                name="message"
+                value={form.message}
+                onChange={handleChange}
+                rows="4"
+                required
+                className="w-full px-4 py-2 rounded-md bg-[#0F151B] border border-[#2c394a] text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#017ea4]"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              className="w-full bg-[#B3001E] hover:bg-white text-white font-semibold px-6 py-2 rounded-md text-sm hover:text-[#B3001E] transition"
+            >
+              Submit
+            </button>
+          </motion.form>
         </div>
       </main>
     </div>
