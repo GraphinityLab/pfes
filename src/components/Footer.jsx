@@ -2,6 +2,7 @@ import {
   FaEnvelope,
   FaPhone,
   FaMapMarkerAlt,
+  FaIdCardAlt,
   FaFacebookF,
   FaInstagram,
   FaLinkedinIn,
@@ -9,9 +10,9 @@ import {
 
 const quickLinks = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "/services" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { label: "About Us", href: "/about-us" },
+  { label: "Our-Services", href: "/our-services" },
+  { label: "Contact Us", href: "/contact-us" },
 ];
 
 const Footer = () => {
@@ -34,10 +35,10 @@ const Footer = () => {
 
         {/* Quick Links */}
         <div>
-          <h3 className="text-lg font-semibold text-white mb-4 border-b border-white/10 pb-2">
+          <h3 className="text-lg font-semibold text-[#B3001E] mb-4 border-b border-white/10 pb-2">
             Quick Links
           </h3>
-          <ul className="space-y-2 text-sm">
+          <ul className="space-y-2 uppercase text-sm">
             {quickLinks.map((link) => (
               <li key={link.label}>
                 <a
@@ -53,22 +54,25 @@ const Footer = () => {
 
         {/* Contact Info */}
         <div>
-          <h3 className="text-lg font-semibold text-white mb-4 border-b border-white/10 pb-2">
+          <h3 className="text-lg font-semibold text-[#B3001E] mb-4 border-b border-white/10 pb-2">
             Contact
           </h3>
-          <ul className="text-white/70 space-y-3 text-sm">
+          <ul className="text-white/70 space-y-2 text-sm">
             <li className="flex items-center">
-              <FaEnvelope className="mr-3 text-[#B3001E]" /> info@powerflow.ca
+              <FaEnvelope className="mr-3 text-[#B3001E]" /> powerflowelectricalservices@gmail.com
             </li>
             <li className="flex items-center">
-              <FaPhone className="mr-3 text-[#B3001E]" /> (123) 456-7890
+              <FaPhone className="mr-3 text-[#B3001E]" /> +1 (905) 922-8115
             </li>
             <li className="flex items-center">
-              <FaMapMarkerAlt className="mr-3 text-[#B3001E]" /> Oshawa, ON
+              <FaMapMarkerAlt className="mr-3 text-[#B3001E]" /> 1288 Ritson Rd N STE 197, Oshawa, ON, L1G 8B2
+            </li>
+            <li className="flex items-center">
+              <FaIdCardAlt className="mr-3 text-[#B3001E]" /> ESA/ECRA License #7013816
             </li>
           </ul>
 
-          {/* Social Icons */}
+          {/* Social Icons 
           <div className="flex space-x-4 mt-6">
             <a
               href="#"
@@ -88,7 +92,7 @@ const Footer = () => {
             >
               <FaLinkedinIn />
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -104,7 +108,7 @@ const Footer = () => {
             href="https://www.graphinitylab.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-semibold text-white hover:underline"
+            className="font-semibold text-[#B3001E] hover:underline"
           >
             Graphinity Lab
           </a>

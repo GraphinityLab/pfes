@@ -2,7 +2,12 @@ import { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import { useLocation } from "react-router-dom";
 
-const navItems = ["Home", "About", "Services", "Contact"];
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about-us" },
+  { label: "Our Services", href: "/our-services" },
+  { label: "Contact Us", href: "/contact-us" },
+];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,29 +24,28 @@ const Navbar = () => {
         {/* Logo */}
         <a href="/" className="flex items-center space-x-3">
           <img
-            src="/pfes-logo.webp"
+            src="/pfes-logo2.webp"
             alt="Powerflow Electrical Logo"
-            className="h-14 w-auto object-contain"
+            className="h-20 w-auto object-contain"
           />
         </a>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center space-x-14 font-semibold text-lg tracking-wide uppercase">
           {navItems.map((item) => {
-            const path = item === "Home" ? "" : item.toLowerCase();
-            const isActive = currentPath === path;
+            const isActive = currentPath === item.href.replace("/", "");
 
             return (
               <a
-                key={item}
-                href={`/${path}`}
+                key={item.label}
+                href={item.href}
                 className={`group relative pb-1 transition-colors duration-200 ${
                   isActive
                     ? "text-[#B3001E]"
                     : "text-white hover:text-[#B3001E]"
                 }`}
               >
-                {item}
+                {item.label}
                 <span
                   className={`absolute left-0 bottom-0 h-[2px] w-full bg-[#B3001E] transition-transform duration-300 origin-left ${
                     isActive
@@ -52,11 +56,12 @@ const Navbar = () => {
               </a>
             );
           })}
+
           <a
             href="/contact"
             className="ml-8 px-5 py-2 rounded-full bg-[#B3001E] text-white font-bold text-sm shadow-md hover:shadow-lg hover:text-[#B3001E] hover:bg-white transition"
           >
-            Get Quote
+            Request a Quote
           </a>
         </nav>
 
@@ -75,22 +80,22 @@ const Navbar = () => {
         <div className="md:hidden backdrop-blur-md bg-[#0F151B]/80 px-6 pb-4 pt-2 border-t border-white/10 z-20">
           <nav className="flex flex-col space-y-5 text-base font-semibold uppercase text-white">
             {navItems.map((item) => {
-              const path = item === "Home" ? "" : item.toLowerCase();
-              const isActive = currentPath === path;
+              const isActive = currentPath === item.href.replace("/", "");
 
               return (
                 <a
-                  key={item}
-                  href={`/${path}`}
+                  key={item.label}
+                  href={item.href}
                   className={`transition-colors duration-200 ${
                     isActive ? "text-[#B3001E]" : "hover:text-[#B3001E]"
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
-                  {item}
+                  {item.label}
                 </a>
               );
             })}
+
             <a
               href="/contact"
               className="mt-3 w-fit px-5 py-2 rounded-full bg-[#B3001E] text-white font-bold text-sm shadow-md hover:shadow-lg hover:text-[#B3001E] hover:bg-white transition"

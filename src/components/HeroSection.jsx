@@ -8,16 +8,9 @@ const config = {
     "/gallery/img3.webp",
     "/gallery/img4.webp",
   ],
-  headline: "Licensed Electrical Contractor You Can Trust",
-  subtexts: [
-    "We provide expert electrical services for homes, businesses, and large facilities with safety and precision.",
-    "From panel upgrades to advanced lighting, our team ensures fully compliant, high-quality installations.",
-    "Rely on our certified professionals for industrial power systems, automation, and ongoing maintenance.",
-    "We bring clean energy and smart technology to your property with unmatched attention to detail.",
-  ],
+  headline: "Commercial and Residential Electrical Services",
 
   imageChangeInterval: 5000,
-  textChangeInterval: 8000,
   headingColor: "#B3001E",
   overlayGradient: "from-black/80 via-black/45 to-black/0",
 };
@@ -32,17 +25,6 @@ const HeroSection = () => {
       setCurrentImage((prev) => (prev + 1) % config.images.length);
     }, config.imageChangeInterval);
     return () => clearInterval(imgInterval);
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setFadeSubtext(false);
-      setTimeout(() => {
-        setSubIndex((prev) => (prev + 1) % config.subtexts.length);
-        setFadeSubtext(true);
-      }, 400); // fade out then fade in
-    }, config.textChangeInterval);
-    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -75,14 +57,14 @@ const HeroSection = () => {
             {config.headline}
           </h1>
           <p
-            className={`text-md md:text-2xl max-w-4xl text-white/80 drop-shadow-md transition-opacity duration-500 ${
-              fadeSubtext ? "opacity-100" : "opacity-0"
-            }`}
+            className={
+              "text-md md:text-3xl max-w-4xl text-white/80 drop-shadow-md transition-opacity duration-500"
+            }
           >
-            {config.subtexts[subIndex]}
+            Available, Affordable, Punctual, Reliable and Safe
           </p>
           <a
-            href="/contact"
+            href="/contact-us"
             className="inline-flex items-center gap-3 bg-[#B3001E] text-white px-8 py-3 rounded-full font-semibold shadow-xl hover:bg-white hover:text-[#B3001E] transition-all duration-300 group"
           >
             Request a Quote

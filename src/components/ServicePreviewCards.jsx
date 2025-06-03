@@ -127,7 +127,7 @@ const ServicesGrid = () => {
           </p>
           <div>
             <a
-              href="/services"
+              href="/our-services"
               className="inline-flex items-center gap-3 bg-[#B3001E] text-white px-8 py-3 rounded-full font-semibold shadow-xl hover:bg-white hover:text-[#B3001E] transition-all duration-300 group"
           >
               Explore All Services

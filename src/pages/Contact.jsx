@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
+import { motion } from "framer-motion";
 import {
   FaPhone,
   FaEnvelope,
@@ -8,7 +8,8 @@ import {
   FaInstagram,
   FaFacebookF,
   FaLinkedinIn,
-} from 'react-icons/fa';
+  FaIdCardAlt,
+} from "react-icons/fa";
 
 const Contact = () => {
   const [searchParams] = useSearchParams();
@@ -26,6 +27,11 @@ const Contact = () => {
     message: "",
   });
 
+  useEffect(() => {
+    const section = document.getElementById("contact-form");
+    if (section) section.scrollIntoView({ behavior: "smooth" });
+  }, []);
+
   const handleChange = (e) => {
     setForm((prev) => ({
       ...prev,
@@ -39,8 +45,8 @@ const Contact = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen pt-[72px] bg-gradient-to-b from-[#06090B] to-[#0F151B] text-[#d0d0d0]">
-      <main className="flex-grow px-4 py-16 max-w-7xl mx-auto w-full">
+    <div className="flex flex-col min-h-screen pt-[80px] bg-gradient-to-b from-[#06090B] to-[#0F151B] text-[#d0d0d0]">
+      <main className="flex-grow px-5 py-16 max-w-[85rem] mx-auto w-full">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -52,39 +58,37 @@ const Contact = () => {
         </motion.h1>
 
         <p className="text-center max-w-2xl mx-auto text-white/60 mb-12">
-          Let us know what you need and we’ll get back to you shortly. Fill out the form or reach us directly using the contact details below.
+          Let us know what you need and we’ll get back to you shortly. Fill out
+          the form or reach us directly using the contact details below.
         </p>
 
-        <div className="grid lg:grid-cols-3 gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-stretch">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="col-span-1 bg-gradient-to-b from-[#0F151B] to-[#06090B] p-6 rounded-xl shadow-lg border border-[#2c394a] space-y-8"
+            className="col-span-1 w-full h-full flex flex-col bg-gradient-to-b from-[#0F151B] to-[#06090B] p-6 sm:p-8 rounded-xl shadow-lg border border-[#2c394a] space-y-6"
           >
             <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <FaMapMarkerAlt className="text-[#B3001E] text-lg" />
-                <p>Oshawa, ON</p>
-              </div>
-              <div className="flex items-center gap-3">
-                <FaPhone className="text-[#B3001E] text-lg" />
-                <p>(123) 456-7890</p>
-              </div>
-              <div className="flex items-center gap-3">
-                <FaEnvelope className="text-[#B3001E] text-lg" />
-                <p>info@powerflowelectricalservices.ca</p>
-              </div>
-            </div>
-
-            <div>
-              <h2 className="text-lg font-semibold mb-2">Follow Us</h2>
-              <div className="flex gap-4 text-white/80">
-                <a href="#" className="hover:text-white" aria-label="Instagram"><FaInstagram size={20} /></a>
-                <a href="#" className="hover:text-white" aria-label="Facebook"><FaFacebookF size={20} /></a>
-                <a href="#" className="hover:text-white" aria-label="LinkedIn"><FaLinkedinIn size={20} /></a>
-              </div>
+              <li className="flex items-start gap-x-2 flex-wrap">
+                <FaEnvelope className="mt-[1px] text-[#B3001E]" />
+                <span className="break-all">
+                  powerflowelectricalservices@gmail.com
+                </span>
+              </li>
+              <li className="flex items-start gap-x-2 flex-wrap">
+                <FaPhone className="mt-[1px] text-[#B3001E]" />
+                <span>+1 (905) 922-8115</span>
+              </li>
+              <li className="flex items-start gap-x-2 flex-wrap">
+                <FaMapMarkerAlt className="mt-[1px] text-[#B3001E]" />
+                <span>1288 Ritson Rd N STE 197, Oshawa, ON, L1G 8B2</span>
+              </li>
+              <li className="flex items-start gap-x-2 flex-wrap">
+                <FaIdCardAlt className="mt-[1px] text-[#B3001E]" />
+                <span>ESA/ECRA License #7013816</span>
+              </li>
             </div>
 
             <div className="text-white/60 text-sm">
@@ -92,76 +96,103 @@ const Contact = () => {
               <p>Emergency services available upon request</p>
             </div>
 
-            <img src="/contact-preview.webp" alt="Powerflow team" className="rounded-lg shadow-md border border-white/10" />
+            <img
+              src="/contact-preview.webp"
+              alt="Powerflow team"
+              className="rounded-lg shadow-md border border-white/10 object-cover w-full max-h-52 mt-4"
+            />
           </motion.div>
 
-          <motion.form
-            onSubmit={handleSubmit}
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="col-span-2 space-y-4 bg-gradient-to-b from-[#0F151B] to-[#06090B] p-6 rounded-xl shadow-lg border border-[#2c394a]"
-          >
-            {[ 
-              { name: "name", label: "Full Name", type: "text" },
-              { name: "email", label: "Email", type: "email" },
-              { name: "phone", label: "Phone Number", type: "text" },
-              { name: "company", label: "Company Name (optional)", type: "text" },
-              { name: "budget", label: "Estimated Budget", type: "text" },
-              { name: "timeline", label: "Preferred Timeline", type: "text", placeholder: "e.g., 2 weeks, ASAP" },
-              { name: "contactMethod", label: "Preferred Contact Method", type: "text", placeholder: "Phone, Email, Text" },
-            ].map(({ name, label, type, placeholder }) => (
-              <div key={name}>
-                <label className="block mb-1 font-medium text-sm text-[#d0d0d0]">{label}</label>
-                <input
-                  type={type}
-                  name={name}
-                  value={form[name]}
-                  onChange={handleChange}
-                  placeholder={placeholder || ""}
-                  required={name !== "company"}
-                  className="w-full px-4 py-2 rounded-md bg-[#0F151B] border border-[#2c394a] text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#B3001E]"
-                />
-              </div>
-            ))}
-
-            <div>
-              <label className="block mb-1 font-medium text-sm text-[#d0d0d0]">Service Type</label>
-              <select
-                name="service"
-                value={form.service}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-2 rounded-md bg-[#0F151B] border border-[#2c394a] text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#B3001E]"
-              >
-                <option value="">Select a service</option>
-                <option value="residential">Residential Electrical Services</option>
-                <option value="commercial">Commercial Electrical Services</option>
-                <option value="industrial">Industrial Electrical Services</option>
-                <option value="specialty">Specialty Services</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="block mb-1 font-medium text-sm text-[#d0d0d0]">Project Description / Message</label>
-              <textarea
-                name="message"
-                value={form.message}
-                onChange={handleChange}
-                rows="4"
-                required
-                className="w-full px-4 py-2 rounded-md bg-[#0F151B] border border-[#2c394a] text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#017ea4]"
-              ></textarea>
-            </div>
-
-            <button
-              type="submit"
-              className="w-full bg-[#B3001E] hover:bg-white text-white font-semibold px-6 py-2 rounded-md text-sm hover:text-[#B3001E] transition"
+          <div className="col-span-2 flex justify-center">
+            <motion.form
+              id="contact-form"
+              onSubmit={handleSubmit}
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="w-full max-w-2xl h-full flex flex-col justify-between space-y-4 bg-gradient-to-b from-[#0F151B] to-[#06090B] p-6 sm:p-8 rounded-xl shadow-lg border border-[#2c394a]"
             >
-              Submit
-            </button>
-          </motion.form>
+              {[
+                { name: "name", label: "Full Name", type: "text" },
+                { name: "email", label: "Email", type: "email" },
+                { name: "phone", label: "Phone Number", type: "text" },
+                {
+                  name: "company",
+                  label: "Company Name (optional)",
+                  type: "text",
+                },
+                { name: "budget", label: "Estimated Budget", type: "text" },
+                {
+                  name: "timeline",
+                  label: "Preferred Timeline",
+                  type: "text",
+                  placeholder: "e.g., 2 weeks, ASAP",
+                },
+                {
+                  name: "contactMethod",
+                  label: "Preferred Contact Method",
+                  type: "text",
+                  placeholder: "Phone, Email, Text",
+                },
+              ].map(({ name, label, type, placeholder }) => (
+                <div key={name}>
+                  <label className="block mb-1 font-medium text-sm text-[#d0d0d0]">
+                    {label}
+                  </label>
+                  <input
+                    type={type}
+                    name={name}
+                    value={form[name]}
+                    onChange={handleChange}
+                    placeholder={placeholder || ""}
+                    required={name !== "company"}
+                    className="w-full px-4 py-2 rounded-md bg-[#0F151B] border border-[#2c394a] text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#B3001E]"
+                  />
+                </div>
+              ))}
+
+              <div>
+                <label className="block mb-1 font-medium text-sm text-[#d0d0d0]">
+                  Service Type
+                </label>
+                <select
+                  name="service"
+                  value={form.service}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-2 rounded-md bg-[#0F151B] border border-[#2c394a] text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#B3001E]"
+                >
+                  <option value="">Select a service</option>
+                  <option value="residential">Residential Electrical Services</option>
+                  <option value="commercial">Commercial Electrical Services</option>
+                  <option value="industrial">Industrial Electrical Services</option>
+                  <option value="specialty">Specialty Services</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block mb-1 font-medium text-sm text-[#d0d0d0]">
+                  Project Description / Message
+                </label>
+                <textarea
+                  name="message"
+                  value={form.message}
+                  onChange={handleChange}
+                  rows="4"
+                  required
+                  className="w-full px-4 py-2 rounded-md bg-[#0F151B] border border-[#2c394a] text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#017ea4]"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-[#B3001E] hover:bg-white text-white font-semibold px-6 py-2 rounded-md text-sm hover:text-[#B3001E] transition"
+              >
+                Submit
+              </button>
+            </motion.form>
+          </div>
         </div>
       </main>
     </div>

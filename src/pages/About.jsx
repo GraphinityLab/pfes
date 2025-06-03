@@ -52,7 +52,9 @@ const About = () => {
             viewport={{ once: true }}
             className="text-lg max-w-3xl mx-auto text-white/80 leading-relaxed"
           >
-            Powerflow Electrical delivers expert service with unwavering safety, precision, and trust. Backed by years of experience, we power homes and businesses across Ontario with confidence.
+            Powerflow Electrical delivers expert service with unwavering safety,
+            precision, and trust. Backed by years of experience, we power homes
+            and businesses across Ontario with confidence.
           </motion.p>
         </section>
 
@@ -64,11 +66,13 @@ const About = () => {
           viewport={{ once: true }}
           className="mb-24 text-center"
         >
-          <p className="text-white/60 text-sm mb-2 tracking-wider uppercase">Let’s Talk Power</p>
-          <button className="inline-flex items-center gap-3 bg-[#B3001E] text-white px-8 py-3 rounded-full font-semibold shadow-xl hover:bg-white hover:text-[#B3001E] transition-all duration-300 group">
+          <a
+            href="/contact-us"
+            className="inline-flex items-center gap-3 bg-[#B3001E] text-white px-8 py-3 rounded-full font-semibold shadow-xl hover:bg-white hover:text-[#B3001E] transition-all duration-300 group"
+          >
             Get in Touch
             <FaArrowRight className="transform group-hover:translate-x-1 transition-transform duration-300" />
-          </button>
+          </a>
         </motion.section>
 
         {/* Why We're Best */}
