@@ -47,16 +47,16 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 w-full z-50 leading-none">
-      <div className="w-full bg-[#01060A] shadow-lg">
+    <header className="fixed w-full z-50 ">
+      <div className="w-full shadow-lg">
         {/* Top Contact Bar */}
         <div
           className={`transition-all duration-300 ease-in-out overflow-hidden ${
             showHeader ? "max-h-[200px] opacity-100" : "max-h-0 opacity-0"
-          } bg-[#01060A] border-b border-white/10 md:max-h-[200px] md:opacity-100`}
+          } bg-[#01060A]  md:max-h-[200px] md:opacity-100`}
         >
           <div className="px-6 py-2 text-white text-sm tracking-wide space-y-2 lg:space-y-0 flex flex-col lg:flex-row justify-between items-start lg:items-center">
-            <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center sm:space-x-6 space-y-2 sm:space-y-0">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center sm:space-x-10 ">
               <div className="flex items-center space-x-2">
                 <FaMapMarkerAlt className="text-[#B3001E] w-4 h-4" />
                 <span>1288 Ritson Rd N, STE 197, Oshawa ON</span>
@@ -88,7 +88,7 @@ const Navbar = () => {
         </div>
 
         {/* Main Navbar */}
-        <div className="relative w-full px-6 py-1.5 flex justify-between items-center text-white bg-gradient-to-r from-[#0F151B]/45 to-[#0F151B]/80 backdrop-blur-sm transition-transform duration-300 ease-in-out">
+        <div className="relative w-full px-6 py-1.5 flex justify-between items-center text-white bg-gradient-to-r from-[#0F151B]/45 to-[#01060A]/80 backdrop-blur-sm transition-transform duration-300 ease-in-out">
           {/* Logo */}
           <a href="/" className="flex items-center space-x-3">
             <img
@@ -144,7 +144,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden backdrop-blur-md bg-[#0F151B]/80 px-6 pb-4 pt-2 border-t border-white/10 z-20">
+        <div className="md:hidden backdrop-blur-md bg-[#0F151B]/80 px-6 pb-4 pt-1 border-t border-white/10 z-20">
           <nav className="flex flex-col space-y-5 text-base font-semibold uppercase text-white">
             {navItems.map((item) => {
               const isActive = currentPath === item.href.replace("/", "");
