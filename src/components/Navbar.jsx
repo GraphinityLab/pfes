@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import { useLocation } from "react-router-dom";
+import {
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaIdCard,
+} from "react-icons/fa";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -19,6 +25,41 @@ const Navbar = () => {
     <header className="fixed top-0 w-full z-50 bg-gradient-to-r from-[#0F151B]/45 to-[#0F151B]/80 backdrop-blur-sm shadow-lg overflow-hidden">
       {/* Gradient Border */}
       <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#B3001E]/100 to-transparent pointer-events-none z-20" />
+
+      {/* Top Contact Strip – Enhanced with Clickable Elements */}
+      <div className="hidden lg:flex justify-between items-center px-6 py-2 bg-[#01060A] text-white text-sm tracking-wide border-b border-white/10 shadow-sm z-40">
+        <div className="flex items-center space-x-6">
+          <div className="flex items-center space-x-2">
+            <FaMapMarkerAlt className="text-[#B3001E] w-4 h-4" />
+            <span>1288 Ritson Rd N, STE 197, Oshawa ON</span>
+          </div>
+
+          <div className="flex items-center space-x-2">
+            <FaPhoneAlt className="text-[#B3001E] w-4 h-4" />
+            <a
+              href="tel:9059228115"
+              className="hover:text-[#B3001E] transition-colors"
+            >
+              905-922-8115
+            </a>
+          </div>
+
+          <div className="flex items-center space-x-2">
+            <FaEnvelope className="text-[#B3001E] w-4 h-4" />
+            <a
+              href="mailto:PowerflowElectricalServices@gmail.com"
+              className="hover:text-[#B3001E] transition-colors"
+            >
+              PowerflowElectricalServices@gmail.com
+            </a>
+          </div>
+        </div>
+
+        <div className="flex items-center space-x-2">
+          <FaIdCard className="text-[#B3001E] w-4 h-4" />
+          <span>ESA/ECRA Licence #7013816</span>
+        </div>
+      </div>
 
       <div className="relative max-w-full mx-auto px-6 py-4 flex justify-between items-center text-white z-30">
         {/* Logo */}
@@ -58,7 +99,7 @@ const Navbar = () => {
           })}
 
           <a
-            href="/contact"
+            href="/contact-us"
             className="ml-8 px-5 py-2 rounded-full bg-[#B3001E] text-white font-bold text-sm shadow-md hover:shadow-lg hover:text-[#B3001E] hover:bg-white transition"
           >
             Request a Quote
@@ -97,11 +138,11 @@ const Navbar = () => {
             })}
 
             <a
-              href="/contact"
+              href="/contact-us"
               className="mt-3 w-fit px-5 py-2 rounded-full bg-[#B3001E] text-white font-bold text-sm shadow-md hover:shadow-lg hover:text-[#B3001E] hover:bg-white transition"
               onClick={() => setIsOpen(false)}
             >
-              Get Quote
+              Request a Quote
             </a>
           </nav>
         </div>
